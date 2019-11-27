@@ -13,10 +13,15 @@
     <div class="col-sm-8">
 
         {{-- TODO: Datos del producto --}}
-        <h1>{{$arrayProductos[0]}}</h1>
-        <h2>Categoria: {{$arrayProductos[1]}}</h2>
+        <h1>{{$producto->nombre}}</h1>
+        <h2>Categoria: {{$producto->categoria}}</h2>
         <p>Estado: Producto actualmente comprado</p>
-        <button class="btn btn-danger">Pendiente producto</button>
+        @if ($producto->pendiente)
+            <button class="btn btn-danger">Producto actualmente comprado</button>
+        @else
+            <button class="btn btn-danger">Pendiente de compra</button>
+        @endif
+
         <a href="../edit/{{$id}}" ><button class="btn btn-warning">< Editar producto</button>
         <a href="../" ><button class="btn btn-default">< Volver al listado</button>
         </a>
